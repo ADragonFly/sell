@@ -1,0 +1,49 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sell?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    hikari:
+      username: root
+      password: 1234
+
+  jackson:
+    default-property-inclusion: non_null
+  redis:
+    host: 172.16.242.230
+    port: 6379
+
+server:
+  servlet:
+    context-path: /sell
+logging:
+  pattern:
+    console: "%d  - %msg%n"
+#    level: com.imooc.sell.dataobject.mapper: trace
+  file:
+    path: /var/log/tomcat/sell.log
+  level:
+    com.imooc.LoggerTest: debug
+#    path: /var/log/tomcat/
+
+wechat:
+  mpAppId: wx5aecc6026a350680
+  mpAppSecret: 4e61dc329ae11f895eb16d99b8c3bec9
+  openAppId: wx6aaaaaaaaaaa
+  openAppSecret: 91aaaaaaaaaaaa
+  mchId: 1409146202
+  mchKey: c976503d34ca432c601361f969fd8d85
+  mchPath: /var/weixin_cert/h5.p1z
+  notify_url: http://127.0.0.1:80/sell/pay/notify
+  templateId:
+    orderStatus: templateId11111
+
+project-url:
+  wechatMpAuthorize: sell.natapp4.cc
+  wechatOpenAuthorize: sell.natapp4.cc
+  sell: 127.0.0.1:8080
+#  sell: http://sell.natapp4.cc
+mybatis:
+  mapper-locations:
+    classpath: mapper/*.xml
+#    classpath: mapper/*.xml
+#  sslContext: /sell/wechat
